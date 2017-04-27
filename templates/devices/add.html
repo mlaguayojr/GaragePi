@@ -1,0 +1,32 @@
+{% include "header.html" %}
+
+	<div class="w3-container w3-content">
+
+		<p></p>
+		<center>
+			<a href="/devices/add/" class="w3-button w3-blue menu_option">Refresh</a>
+		</center>
+
+		<p class="w3-opacity"><b>Nearby Bluetooth Devices</b></p>
+
+		<center>
+			<div style="height: 80vh; overflow: auto;">
+
+			{% if devices == None %}
+				<div class="w3-panel w3-white w3-card-2 w3-display-container">
+					<p>Could not find any nearby devices.<br>Make sure that bluetooth is enabled! (and the device is connected)</p>
+				</div>
+			{% else %}
+				{% for i in devices %}
+					<a href="/devices/add/{{ i }}" class="menu_option w3-button w3-blue" style="width: 420px; min-width: 400px;">
+						{{ devices[i] }} ({{ i }})
+					</a>
+					<p></p>
+				{% endfor %}
+			{% endif %}
+			</div>
+		</center>
+
+	</div>
+
+{% include "footer.html" %}

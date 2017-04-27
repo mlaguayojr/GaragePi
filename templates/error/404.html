@@ -1,0 +1,22 @@
+{% include "header.html" %}
+
+
+	<div class="w3-container w3-content" style="overflow: auto;">
+
+		<p class="w3-opacity"><b>Error 404:</b></p>
+
+		<div class="w3-panel w3-white w3-card-2 w3-display-container">
+		<p></p>
+		<center>{{ msg }}</center>
+		<p></p>
+		</div>
+
+		<script type="text/javascript">
+			window.setTimeout(function(){
+				// Move to a new location or you can do something else
+       			window.location.href = "{{ redirect }}";
+    		}, {{ timeout }});
+		</script>
+	</div>
+
+{% include "footer.html" %}

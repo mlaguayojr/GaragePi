@@ -1,0 +1,42 @@
+{% include "header.html" %}
+
+<style type="text/css">
+{% include "style.css" %}
+</style>
+
+	<div class="w3-container w3-content">
+
+		<p></p>
+
+		<center>
+			<a href="" class="w3-button w3-blue menu_option">Refresh</a>
+			<a href="/devices/add/" class="menu_option w3-button w3-blue">Scan Nearby</a>
+		</center>
+
+		<p class="w3-opacity"><b>Saved Devices</b></p>
+
+		<div style="height: 55vh; overflow: auto;">
+
+			{% if out == None %}
+			
+			<div class="w3-panel w3-white w3-card-2 w3-display-container">
+				<center><p>There are no saved devices.</p></center>
+			</div>
+
+			{% else %}
+
+				{% for i in out %}
+				<a href="/device/{{ i[0] }}" class="menu_option">
+					<div class="w3-panel w3-white w3-card-2 w3-display-container">
+						<p><b class="w3-text-blue">&nbsp;&nbsp;{{ i[0] }}</b>
+						<small>&nbsp;<i>Select to view more data.</i></small>
+						</p>
+					</div>
+				</a>
+				{% endfor %}
+
+			{% endif %}
+		</div>
+	</div>
+
+{% include "footer.html" %}

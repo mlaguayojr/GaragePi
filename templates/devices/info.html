@@ -1,0 +1,50 @@
+{% include "header.html" %}
+
+<style type="text/css">
+{% include "style.css" %}
+</style>
+
+	<div class="w3-container w3-content" style="overflow: auto;">
+
+		<div class="w3-panel w3-white w3-card-2 w3-display-container">
+			<p></p>
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td>{{ info[0] }}</td>
+				</tr>
+				<tr>
+					<td>MAC:</td>
+					<td>{{ info[1] }}</td>
+				</tr>
+				<tr>
+					<td>Description:</td>
+					<td>{{ info[2] }}</td>
+				</tr>
+				<tr>
+					<td>Created:</td>
+					<td>{{ info[3] }}</td>
+				</tr>
+				<tr>
+					<td>Edited:</td>
+					<td>{{ info[4] }}</td>
+				</tr>
+				<tr>
+					<td>PIN:</td>
+					<td>{{ info[5] }}</td>
+				</tr>
+			</table>
+			<p></p>
+
+			<center>
+				<a href="/devices/" class="menu_option w3-button w3-grey">Back</a>
+				<a href="/devices/{{ info[0] }}/edit/" class="menu_option w3-button w3-blue">Edit</a>
+				<a href="/devices/{{ info[0] }}/delete/" class="menu_option w3-button w3-red">Delete</a>
+			</center>
+			
+			<p></p>
+		</div>
+
+	</div>
+
+{% include "footer.html" %}

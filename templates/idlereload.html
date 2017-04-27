@@ -1,0 +1,27 @@
+<script type="text/javascript">
+	window.onload = function() { inactivityTime(); };
+
+	document.onload = function() { inactivityTime(); };
+	
+	document.onmousedown = function() { inactivityTime(); };
+
+	document.onkeypress = function() { inactivityTime(); };
+
+	document.ontouchstart = function() { inactivityTime(); };
+
+	var inactivityTime = function() {
+		var t;
+		window.onload = resetTimer;
+		document.onmousemove = resetTimer;
+		document.onkeypress = resetTimer;
+		document.onmousedown = resetTimer;
+
+		function refresh() { location.href = location.href; }
+
+		function resetTimer() {
+			clearTimeout(t);
+			t = setTimeout(refresh, {{ timeout }});
+			// 1000 milisec = ~ 1 sec
+		}
+	};
+</script>

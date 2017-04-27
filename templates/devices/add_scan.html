@@ -1,0 +1,48 @@
+{% include "header.html" %}
+
+	<div class="w3-container w3-content">
+
+		<p>Provide a useful name for the device in the "Device Name" section.</p>
+		<center>
+			<div class="w3-panel w3-white w3-card-2 w3-display-container">
+			<p></p>
+			<form method="POST" action="/devices/add/{{ info[0] }}" autocomplete="off">
+			<table>
+				<tr>
+					<td>Device Name:</td>
+					<td>
+						<input maxlength="15" name="_name" type="text" value="{{ info[1] }}" placeholder="{{ info[1] }}" required="">
+					</td>
+				</tr>
+				<tr>
+					<td>MAC:</td>
+					<td>
+						<input maxlength="17" name="_mac" type="text" value="{{ info[0] }}" placeholder="{{ info[0] }}" required="" readonly="">
+					</td>
+				</tr>
+				<tr>
+					<td>(optional) Description:</td>
+					<td>
+						<input maxlength="15" type="text" name="_desc" value="" placeholder="Describe this device.">
+					</td>
+				</tr>
+				<tr>
+					<td>PIN:</td>
+					<td>
+						<input maxlength="4" type="text" name="_pin" value="0000" placeholder="0000">
+					</td>
+				</tr>
+			</table>
+
+			<p></p>
+			<a class="w3-button menu_option" href="/devices/add/">Cancel</a>
+			<input type="submit" name="submit" class="w3-button w3-green">
+			<input type="reset" class="w3-button w3-red">
+			</form>
+			<p></p>
+			</div>
+		</center>
+
+	</div>
+
+{% include "footer.html" %}

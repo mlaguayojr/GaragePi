@@ -1,0 +1,58 @@
+{% include "header.html" %}
+
+<script type="text/javascript">
+	window.onload = function() { inactivityTime(); };
+
+	document.onload = function() { inactivityTime(); };
+	
+	document.onmousedown = function() { inactivityTime(); };
+
+	document.onkeypress = function() { inactivityTime(); };
+
+	document.ontouchstart = function() { inactivityTime(); };
+
+	var inactivityTime = function() {
+		var t;
+		window.onload = resetTimer;
+		document.onmousemove = resetTimer;
+		document.onkeypress = resetTimer;
+		document.onmousedown = resetTimer;
+
+		function refresh() {
+			location.href = location.href;
+		}
+
+		function resetTimer() {
+			clearTimeout(t);
+			t = setTimeout(refresh, 3000);
+			// 1000 milisec = ~ 1 sec
+		}
+	};
+</script>
+
+	<div class="w3-container w3-content">
+
+		<div class="w3-panel w3-white w3-card-2 w3-display-container">
+			<p class="w3-text-blue"><b>Bluetooth Information</b></p>
+			<table style="padding: 4px; margin-left: 10px;">
+				<tr>
+				{% if info != None %}
+				<td>MAC:</td>
+				<td>{{ info[0] }}</td>
+				{% else %}
+				<td>
+					I had trouble getting your MAC address.
+					<br><br>
+					Try the following:
+					<ul>
+					<li>Ensure the bluetooth adapter is connected.</li>
+					<li>Make sure bluetooth is enabled.</li>
+					</ul>
+				</td>
+				{% endif %}
+				</tr>
+			</table>
+		</div>
+	</div>
+
+{% include "footer.html" %}

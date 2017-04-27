@@ -1,0 +1,54 @@
+{% include "header.html" %}
+
+<style type="text/css">
+{% include "style.css" %}
+</style>
+
+	<div class="w3-container w3-content" style="overflow: auto;">
+
+	<p class="w3-opacity"><b>Update {{ info[0]+"\'s" }} Information:</b></p>
+
+		<div class="w3-panel w3-white w3-card-2 w3-display-container">
+			<p></p>
+			<form action="/devices/{{ info[0] }}/edit/" method="POST">
+			<table>
+				<tr>
+					<td>Name:</td>
+					<td>
+						<input type="text" maxlength="15" name="_name" placeholder="{{ info[0] }}" value="{{ info[0] }}">
+					</td>
+				</tr>
+				<tr>
+					<td>MAC:</td>
+					<td>
+						<input type="text" maxlength="17" name="_mac" placeholder="{{ info[1] }}" value="{{ info[1] }}" readonly="">
+					</td>
+				</tr>
+				<tr>
+					<td>Description:</td>
+					<td>
+						<input type="text" maxlength="15" name="_desc" placeholder="{{ info[2] }}" value="{{ info[2] }}">
+					</td>
+				</tr>
+				<tr>
+					<td>PIN:</td>
+					<td>
+						<input type="text" maxlength="4" name="_pin" placeholder="{{ info[3] }}" value="{{ info[3] }}">
+					</td>
+				</tr>
+			</table>
+
+			<p></p>
+
+			<center>
+				<a href="/devices/" class="w3-button">Cancel</a>
+				<button class="w3-button w3-red" type="reset">Reset</button>
+				<button class="w3-button w3-green" type="submit">Apply Changes</button>
+			</center>
+			<p></p>
+			</form>
+		</div>
+
+	</div>
+
+{% include "footer.html" %}
