@@ -306,6 +306,7 @@ def device_add(action=None):
 				if data[1] != "(unknown)":
 					devices[data[0]] = " ".join(data[1:])
 
+	# THIS DOES NOT WORK -- I CAN TELL YOU WHY
 	# out, err = Popen("sudo hciconfig hci0 reset", shell=True, stdout=PIPE).communicate()
 	# print "Reseting Bluetooth Device: {0}".format(out)
 
@@ -368,6 +369,13 @@ def device_add_scan(mac):
 def page_not_found(error):
 	return render_template("error/404.html",timeout=ms(3), msg="Does not exist! Going Home in 3 seconds...",redirect="/home/")
 
+@app.route("/vin/")
+@app.route("/vin/<vin>")
+def decode_vin(vin, methods=['GET','POST']):
+	if request.method == 'POST':
+		return render_template("home/VIN.html",vin=vin)
+	else:
+		return render_template("home/VIN.html",vin=None)
 
 def ms(seconds):
 	return int(seconds)*1000

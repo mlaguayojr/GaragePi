@@ -1,0 +1,28 @@
+{% include "header.html" %}
+
+<style type="text/css">{% include "style.css" %}</style>
+
+	<div class="w3-container w3-content" style="height: 80vh; overflow: auto; min-width: 400px;">
+
+		<div class="w3-panel w3-white w3-card-2 w3-display-container">
+			<p class="w3-text-blue"><b>Vehicle Identification Number</b></p>
+
+			{% if vin == None %}
+				<p>&nbsp;&nbsp;The VIN (Vehicle Identification Number) provides detailed information on your vehicle:</p>
+				<ul>
+					<li>Model Year</li>
+					<li>Country of Origin</li>
+					<li>Vehicle Make</li>
+					<li>Vehicle Model</li>
+					<li>and more...</li>
+				</ul>
+			{% else %}
+				<p class="w3-text-blue"><b>VIN Information</p>
+				<center><strong>{{ vin }}</strong></center>
+			{% endif %}
+
+		</div>
+	
+	</div>
+
+{% include "footer.html" %}
