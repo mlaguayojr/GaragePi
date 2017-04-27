@@ -17,4 +17,8 @@ sudo python2 -m pip install Flask
 echo "[} Installing python-mysqldb"
 sudo apt-get install python-mysqldb -y
 
+## Remember the credentials you wrote for this section
+echo "[} Installing MySQL Server"
+sudo apt-get install mysql-server -y
+
 rm get-pip.py
