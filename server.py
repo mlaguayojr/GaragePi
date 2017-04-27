@@ -369,16 +369,42 @@ def device_add_scan(mac):
 def page_not_found(error):
 	return render_template("error/404.html",timeout=ms(3), msg="Does not exist! Going Home in 3 seconds...",redirect="/home/")
 
-@app.route("/vin/")
-@app.route("/vin/<vin>")
-def decode_vin(vin, methods=['GET','POST']):
-	if request.method == 'POST':
-		return render_template("home/VIN.html",vin=vin)
-	else:
-		return render_template("home/VIN.html",vin=None)
-
 def ms(seconds):
 	return int(seconds)*1000
+
+@app.route("/vin/")
+def get_vin():
+	return render_template("home/VIN.html",vin=None)
+
+@app.route("/vin/info/",methods=["POST"])
+def decode_vin():
+	if request.method != "POST":
+		return redirect("/home/")
+
+	_vin = request.form['vin'].split()
+	return render_template("home/VIN.html",vin=_vin)
+
+@app.route("/reports/view/")
+def show_reports():
+	from os import listdir
+	return render_template("report/view.html",reports=listdir("saved_reports"))
+
+@app.route("/reports/view/<file>")
+def load_report(file):
+	from os.path import exists
+	
+	if exists("saved_reports/"+file):
+		
+		data = open("saved_reports/"+file).read().strip()
+
+		if not isinstance(eval(data),dict):
+			return render_template("error/report_bad.html",timeout=ms(5), msg="{0} is corrupt. Returning to home".format(file),redirect="/home/")
+		else:
+			return redirect("saved_reports/"+file)
+
+	else:
+		return render_template("error/report_bad.html",timeout=ms(5), msg="{0} is corrupt. Returning to home".format(file),redirect="/home/")
+
 
 if __name__ == "__main__":
 	db = connectDB()

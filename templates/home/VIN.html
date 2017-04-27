@@ -8,7 +8,7 @@
 			<p class="w3-text-blue"><b>Vehicle Identification Number</b></p>
 
 			{% if vin == None %}
-				<p>&nbsp;&nbsp;The VIN (Vehicle Identification Number) provides detailed information on your vehicle:</p>
+				<p>The VIN (Vehicle Identification Number) provides detailed information on your vehicle:</p>
 				<ul>
 					<li>Model Year</li>
 					<li>Country of Origin</li>
@@ -16,9 +16,23 @@
 					<li>Vehicle Model</li>
 					<li>and more...</li>
 				</ul>
+				<p></p>
+				<hr>
+				<center>
+				<form action="/vin/info/" method="POST">
+					<input type="text" maxlength="17" name="vin" placeholder="1HGBH41JXMN109186">
+					<p></p>
+
+					<input type="reset" class="w3-button w3-red">
+					<input type="submit" class="w3-button w3-blue">
+				</form>
+				</center>
+				<p></p>
 			{% else %}
-				<p class="w3-text-blue"><b>VIN Information</p>
+				<p></p>
 				<center><strong>{{ vin }}</strong></center>
+				<p></p>
+				
 			{% endif %}
 
 		</div>
