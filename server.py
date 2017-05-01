@@ -167,7 +167,7 @@ def devices():
 	global db
 
 	if db != None:
-		out = Query("select Name from devices;")
+		out = Query("select Name, Description from devices;")
 		
 		if len(out) == 0:
 			out = None
@@ -388,6 +388,15 @@ def decode_vin():
 def show_reports():
 	from os import listdir
 	return render_template("report/view.html",reports=listdir("saved_reports"))
+
+@app.route("/reports/idle/")
+def new_idle_report():
+	devices = Query("select Name from devices;")[0]
+	return render_template("report/idle.html",devices=devices)
+
+@app.route("/reports/idle/<device>/")
+def get_obd_data(device):
+	return "Pulling data from {0}".format(device)
 
 @app.route("/reports/view/<file>")
 def load_report(file):

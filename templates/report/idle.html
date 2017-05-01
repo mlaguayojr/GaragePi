@@ -1,0 +1,18 @@
+{% include "header.html" %}
+
+<style type="text/css">
+{% include "style.css" %}
+</style>
+
+	<div class="w3-container w3-content">
+
+		<p></p>
+		<center>
+		{% for device in devices %}
+			<a href="/reports/idle/{{ device }}/" class="menu_option w3-button w3-blue">{{ device }}</a>
+		{% endfor %}
+		</center>
+
+	</div>
+
+{% include "footer.html" %}

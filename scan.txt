@@ -1,1 +1,3 @@
 Scanning ...
+	00:1D:A5:1A:13:73	OBDII
+	38:01:95:90:CF:93	[TV] UN65JS9000

@@ -1,0 +1,4 @@
+sudo apt-get install bluetooth blueman
+
+connect bluetooth device
+connect as serialport

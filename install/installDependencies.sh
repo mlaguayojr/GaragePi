@@ -17,8 +17,18 @@ sudo python2 -m pip install Flask
 echo "[} Installing python-mysqldb"
 sudo apt-get install python-mysqldb -y
 
-## Remember the credentials you wrote for this section
+# Remember the credentials you wrote for this section
 echo "[} Installing MySQL Server"
 sudo apt-get install mysql-server -y
+
+# This is where the credentials are needed from the previous step
+# Example: mysql -u<username> -p<password>
+#          mysql -uroot -proot
+# 		The username here is root, and the password is root.
+echo "[} Installing GaragePi database"
+mysql -uroot -proot -e 'create database garagepi; use garagepi; source garagepi.sql;'
+
+echo "[} Installing PHPMyAdmin"
+sudo apt-get install phpmyadmin -y
 
 rm get-pip.py
