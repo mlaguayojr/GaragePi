@@ -382,6 +382,69 @@ def decode_vin():
 		return redirect("/home/")
 
 	_vin = request.form['vin'].split()
+
+	if len(_vin) != 17:
+		return redirect("/vin/")
+
+	_built	= str(_vin[0])
+	_manuf	= str(_vin[1:3])
+	_brand	= str(_vin[3:8])
+	_code 	= str(_vin[8])
+	_year	= str(_vin[9])
+	_plant	= str(_vin[10])
+	_serial = str(_vin[11:])
+
+
+	valid_models = {
+		'A': ["1980","2010"],
+		'B': ["1981","2011"],
+		'C': ["1982","2012"],
+		'D': ["1983","2013"],
+		'E': ["1984","2014"],
+		'F': ["1985","2015"],
+		'G': ["1986","2016"],
+		"H": ["1987","2017"],
+		"J": ["1988"],
+		"K": ["1989"],
+		"L": ["1990"],
+		"M": ["1991"],
+		"N": ["1992"],
+		"P": ["1993"],
+		"R": ["1994"],
+		"S": ["1995"],
+		"T": ["1996"],
+		"V": ["1997"],
+		"W": ["1998"],
+		"X": ["1999"],
+		"Y": ["2000"],
+		"1": ["2001"],
+		"2": ["2002"],
+		"3": ["2003"],
+		"4": ["2004"],
+		"5": ["2005"],
+		"6": ["2006"],
+		"7": ["2007"],
+		"8": ["2008"],
+		"9": ["2009"]
+	}
+
+	valid_countries = {
+		'1': "United States",
+		'4': "United States",
+		'5': "United States",
+		'2': "Canada",
+		"3A": 'Mexico',
+		"37": 'Mexico',
+		"J": 'Japan',
+		'VF': 'France',
+		"VR": 'France',
+		"9": "Brazil",
+		"WA": 'West Germany',
+		"W0": 'West Germany',
+		"S": "Great Britain"
+	}
+
+
 	return render_template("home/VIN.html",vin=_vin)
 
 @app.route("/reports/view/")
@@ -414,6 +477,55 @@ def load_report(file):
 	else:
 		return render_template("error/report_bad.html",timeout=ms(5), msg="{0} is corrupt. Returning to home".format(file),redirect="/home/")
 
+@app.route("/reports/")
+def report_page():	return render_template("report/main.html")
+
+
+"""
+	After selecting a device that is connected.
+	The program queries and collects the data to a live view.
+	The user then has the following options:
+		- save report
+		- refresh
+"""
+@app.route("/reports/new/<mac>/")
+def report_new(mac, methods=['GET']):
+
+	dev_name = Query("select Name from devices where MAC=\"{0}\";".format(mac))
+	if len(dev_name) == 1:
+		dev_name = dev_name[0][0]
+		url = "/reports/new/%s/" % mac
+
+		from time import strftime
+		start = strftime("%m-%d-%Y %H:%m")
+
+		from obd import obd
+		obd.logger.setLevel(obd.logging.DEBUG)
+		car = obd.OBD()
+		results = []
+
+		if car.is_connected():
+
+			for i in car.supported_commands:
+				results.append([ str(i), car.query(i).value ])
+
+			car.close()
+		else:
+			results = None
+
+		return render_template("report/new.html",device=dev_name, mac=mac, time=start, data=results, url=url)
+	else:
+		return redirect("devices/")
+
+"""
+	View all saved reports
+"""
+@app.route("/reports/view/")
+def report_view():
+	from os import listdir
+
+	reports = listdir("saved_reports")
+	return render_template("report/list.html", reports=reports)
 
 if __name__ == "__main__":
 	db = connectDB()

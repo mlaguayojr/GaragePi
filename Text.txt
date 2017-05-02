@@ -1,0 +1,274 @@
+[obd.obd] ======================= python-OBD (v0.6.1) =======================
+[obd.obd] Using scan_serial to select port
+[obd.obd] Available ports: ['/dev/rfcomm0']
+[obd.obd] Attempting to use port: /dev/rfcomm0
+[obd.obd] querying for supported commands
+[obd.obd] Sending command: 0100: Supported PIDs [01-20]
+[obd.obd] Sending command: 0120: Supported PIDs [21-40]
+[obd.obd] Sending command: 0140: Supported PIDs [41-60]
+[obd.obd] Sending command: 0600: Supported MIDs [01-20]
+[obd.obd] Sending command: 0620: Supported MIDs [21-40]
+[obd.obd] Sending command: 0640: Supported MIDs [41-60]
+[obd.obd] Sending command: 0660: Supported MIDs [61-80]
+[obd.obd] Sending command: 0680: Supported MIDs [81-A0]
+[obd.obd] Sending command: 06A0: Supported MIDs [A1-C0]
+[obd.obd] finished querying with 117 commands supported
+[obd.obd] ===================================================================
+05-01-2017 12:05
+/dev/rfcomm0
+[obd.obd] Sending command: 0134: 02 Sensor 1 WR Lambda Current
+-0.0234375 milliampere
+[obd.obd] Sending command: 0130: Number of warm-ups since codes cleared
+1 count
+[obd.obd] Sending command: 0131: Distance traveled since codes cleared
+0 kilometer
+[obd.obd] Sending command: 0132: Evaporative system vapor pressure
+65.0 pascal
+[obd.obd] Sending command: 0133: Barometric Pressure
+100 kilopascal
+[obd.obd] Sending command: 0233: DTC Barometric Pressure
+None
+[obd.obd] Sending command: 0232: DTC Evaporative system vapor pressure
+None
+[obd.obd] Sending command: 0231: DTC Distance traveled since codes cleared
+None
+[obd.obd] Sending command: 0230: DTC Number of warm-ups since codes cleared
+None
+[obd.obd] Sending command: 0234: DTC 02 Sensor 1 WR Lambda Current
+None
+[obd.obd] Sending command: 0141: Monitor status this drive cycle
+<obd.OBDResponse.Status instance at 0x7f4cc90c36c8>
+[obd.obd] Sending command: 0140: Supported PIDs [41-60]
+11111110110111001000000001000000
+[obd.obd] Sending command: 0143: Absolute load value
+15.6862745098 percent
+[obd.obd] Sending command: 012D: EGR Error
+0.0 percent
+[obd.obd] Sending command: 012C: Commanded EGR
+0.0 percent
+[obd.obd] Sending command: 0144: Commanded equivalence ratio
+0.994422 ratio
+[obd.obd] Sending command: 0147: Absolute throttle position B
+30.1960784314 percent
+[obd.obd] Sending command: 0146: Ambient air temperature
+12 degC
+[obd.obd] Sending command: 0149: Accelerator pedal position D
+12.9411764706 percent
+[obd.obd] Sending command: 0639: EVAP Monitor (Cap Off / 0.150")
+Unknown : 0.0 pascal [PASSED]
+[obd.obd] Sending command: 014A: Accelerator pedal position E
+12.5490196078 percent
+[obd.obd] Sending command: 014C: Commanded throttle actuator
+0.0 percent
+[obd.obd] Sending command: 0124: 02 Sensor 1 WR Lambda Voltage
+2.17557030594 volt
+[obd.obd] Sending command: 014E: Time since trouble codes cleared
+2 minute
+[obd.obd] Sending command: 014D: Time run with MIL on
+0 minute
+[obd.obd] Sending command: 0121: Distance Traveled with MIL on
+0 kilometer
+[obd.obd] Sending command: 0120: Supported PIDs [21-40]
+10010000000111111111000000010001
+[obd.obd] Sending command: 06A5: Misfire Cylinder 4 Data
+Average misfire counts for last ten driving cycles : 0 count [PASSED]
+Misfire counts for last/current driving cycles : 0 count [PASSED]
+[obd.obd] Sending command: 06A4: Misfire Cylinder 3 Data
+Average misfire counts for last ten driving cycles : 0 count [PASSED]
+Misfire counts for last/current driving cycles : 0 count [PASSED]
+[obd.obd] Sending command: 0680: Supported MIDs [81-A0]
+00000000000000000000000000000001
+[obd.obd] Sending command: 06A1: Misfire Monitor General Data
+Average misfire counts for last ten driving cycles : 0 count [PASSED]
+Misfire counts for last/current driving cycles : 0 count [PASSED]
+[obd.obd] Sending command: 06A0: Supported MIDs [A1-C0]
+11111000000000000000000000000000
+[obd.obd] Sending command: 06A3: Misfire Cylinder 2 Data
+Average misfire counts for last ten driving cycles : 0 count [PASSED]
+Misfire counts for last/current driving cycles : 0 count [PASSED]
+[obd.obd] Sending command: 06A2: Misfire Cylinder 1 Data
+Average misfire counts for last ten driving cycles : 0 count [PASSED]
+Misfire counts for last/current driving cycles : 0 count [PASSED]
+[obd.obd] Sending command: 0602: O2 Sensor Monitor Bank 1 - Sensor 2
+Rich to lean sensor switch time : 0 millisecond [PASSED]
+Lean to rich sensor switch time : 320 millisecond [PASSED]
+Minimum sensor voltage for test cycle : 0.0 volt [PASSED]
+Maximum sensor voltage for test cycle : 0.591 volt [PASSED]
+Unknown : 0.229 volt [PASSED]
+Unknown : 0.229 volt [PASSED]
+[obd.obd] Sending command: 0600: Supported MIDs [01-20]
+11000000000000000000000000000001
+[obd.obd] Sending command: 0601: O2 Sensor Monitor Bank 1 - Sensor 1
+Unknown : 2197.22 millivolt [PASSED]
+Unknown : 31 ohm [PASSED]
+Unknown : 1806.698 millivolt [PASSED]
+Unknown : 0.0 ratio [PASSED]
+Unknown : 0.0 ratio [PASSED]
+Unknown : 0.0 ratio [PASSED]
+[obd.obd] Sending command: 013C: Catalyst Temperature: Bank 1 - Sensor 1
+217.3 degC
+[obd.obd] Sending command: 023C: DTC Catalyst Temperature: Bank 1 - Sensor 1
+None
+[obd.obd] Sending command: 0113: O2 Sensors Present
+((), (False, False, False, False), (False, False, True, True))
+[obd.obd] Sending command: 0110: Air Flow Rate (MAF)
+2.95 gps
+[obd.obd] Sending command: 0111: Throttle Position
+12.9411764706 percent
+[obd.obd] Sending command: 0115: O2: Bank 1 - Sensor 2 Voltage
+0.21 volt
+[obd.obd] Sending command: 03: Get DTCs
+[]
+[obd.obd] Sending command: 07: Get DTCs from the current/last driving cycle
+[]
+[obd.obd] Sending command: 04: Clear DTCs and Freeze data
+None
+[obd.obd] Sending command: 0206: DTC Short Term Fuel Trim - Bank 1
+None
+[obd.obd] Sending command: 0207: DTC Long Term Fuel Trim - Bank 1
+None
+[obd.obd] Sending command: 0204: DTC Calculated Engine Load
+None
+[obd.obd] Sending command: 0205: DTC Engine Coolant Temperature
+None
+[obd.obd] Sending command: 0203: DTC Fuel System Status
+None
+[obd.obd] Sending command: 0201: DTC Status since DTCs cleared
+None
+[obd.obd] Sending command: 010E: Timing Advance
+15.5 degree
+[obd.obd] Sending command: 010D: Vehicle Speed
+0 kph
+[obd.obd] Sending command: 010F: Intake Air Temp
+38 degC
+[obd.obd] Sending command: 010C: Engine RPM
+730.25 revolutions_per_minute
+[obd.obd] Sending command: 010B: Intake Manifold Pressure
+29 kilopascal
+[obd.obd] Sending command: 020F: DTC Intake Air Temp
+None
+[obd.obd] Sending command: 020D: DTC Vehicle Speed
+None
+[obd.obd] Sending command: 020E: DTC Timing Advance
+None
+[obd.obd] Sending command: 020B: DTC Intake Manifold Pressure
+None
+[obd.obd] Sending command: 020C: DTC Engine RPM
+None
+[obd.obd] Sending command: 0105: Engine Coolant Temperature
+90 degC
+[obd.obd] Sending command: 0104: Calculated Engine Load
+18.0392156863 percent
+[obd.obd] Sending command: 0107: Long Term Fuel Trim - Bank 1
+-5.46875 percent
+[obd.obd] Sending command: 0106: Short Term Fuel Trim - Bank 1
+0.78125 percent
+[obd.obd] Sending command: 0101: Status since DTCs cleared
+<obd.OBDResponse.Status instance at 0x7f4cc90c3998>
+[obd.obd] Sending command: 0100: Supported PIDs [01-20]
+10111110001111111010100000010011
+[obd.obd] Sending command: 0103: Fuel System Status
+('Closed loop, using oxygen sensor feedback to determine fuel mix', '')
+[obd.obd] Sending command: 0211: DTC Throttle Position
+None
+[obd.obd] Sending command: 011C: OBD Standards Compliance
+OBD and OBD-II
+[obd.obd] Sending command: 0213: DTC O2 Sensors Present
+None
+[obd.obd] Sending command: 0215: DTC O2: Bank 1 - Sensor 2 Voltage
+None
+[obd.obd] Sending command: 0660: Supported MIDs [61-80]
+00000000000000000000000000000001
+[obd.obd] Sending command: 021C: DTC OBD Standards Compliance
+None
+[obd.obd] Sending command: ATI: ELM327 version string
+ELM327 v1.5
+[obd.obd] Sending command: 024A: DTC Accelerator pedal position E
+None
+[obd.obd] Sending command: 012F: Fuel Level Input
+78.0392156863 percent
+[obd.obd] Sending command: 021F: DTC Engine Run Time
+None
+[obd.obd] Sending command: 012E: Commanded Evaporative Purge
+0.0 percent
+[obd.obd] Sending command: 024C: DTC Commanded throttle actuator
+None
+[obd.obd] Sending command: 0142: Control module voltage
+14.023 volt
+[obd.obd] Sending command: 024D: DTC Time run with MIL on
+None
+[obd.obd] Sending command: 024E: DTC Time since trouble codes cleared
+None
+[obd.obd] Sending command: 0145: Relative throttle position
+1.56862745098 percent
+[obd.obd] Sending command: 0631: EGR Monitor Bank 1
+Unknown : 0.0 kilopascal [PASSED]
+[obd.obd] Sending command: 0242: DTC Control module voltage
+None
+[obd.obd] Sending command: 0243: DTC Absolute load value
+None
+[obd.obd] Sending command: 0240: DTC Supported PIDs [41-60]
+None
+[obd.obd] Sending command: 0241: DTC Monitor status this drive cycle
+None
+[obd.obd] Sending command: 0246: DTC Ambient air temperature
+None
+[obd.obd] Sending command: 0247: DTC Absolute throttle position B
+None
+[obd.obd] Sending command: 0244: DTC Commanded equivalence ratio
+None
+[obd.obd] Sending command: 0245: DTC Relative throttle position
+None
+[obd.obd] Sending command: 0249: DTC Accelerator pedal position D
+None
+[obd.obd] Sending command: ATRV: Voltage detected by OBD-II adapter
+[obd.decoders] Failed to parse ELM voltage
+None
+[obd.obd] Sending command: 0642: O2 Sensor Heater Monitor Bank 1 - Sensor 2
+Unknown : 0 count [PASSED]
+Unknown : 0 count [PASSED]
+[obd.obd] Sending command: 0640: Supported MIDs [41-60]
+11000000000000000000000000000001
+[obd.obd] Sending command: 0641: O2 Sensor Heater Monitor Bank 1 - Sensor 1
+Unknown : 0 count [PASSED]
+Unknown : 0 count [PASSED]
+Unknown : 0 ohm [PASSED]
+[obd.obd] Sending command: 015A: Relative accelerator pedal position
+0.0 percent
+[obd.obd] Sending command: 0251: DTC Fuel Type
+None
+[obd.obd] Sending command: 063D: Purge Flow Monitor
+Unknown : 0.0 pascal [PASSED]
+[obd.obd] Sending command: 063C: EVAP Monitor (0.020")
+Unknown : 0.0 pascal [PASSED]
+Unknown : 0.0 pascal [PASSED]
+[obd.obd] Sending command: 063B: EVAP Monitor (0.040")
+Unknown : 0.0 pascal [PASSED]
+Unknown : 0.0 pascal [PASSED]
+[obd.obd] Sending command: 0210: DTC Air Flow Rate (MAF)
+None
+[obd.obd] Sending command: 011F: Engine Run Time
+1156 second
+[obd.obd] Sending command: 022C: DTC Commanded EGR
+None
+[obd.obd] Sending command: 022D: DTC EGR Error
+None
+[obd.obd] Sending command: 022E: DTC Commanded Evaporative Purge
+None
+[obd.obd] Sending command: 022F: DTC Fuel Level Input
+None
+[obd.obd] Sending command: 0220: DTC Supported PIDs [21-40]
+None
+[obd.obd] Sending command: 0221: DTC Distance Traveled with MIL on
+None
+[obd.obd] Sending command: 0224: DTC 02 Sensor 1 WR Lambda Voltage
+None
+[obd.obd] Sending command: 0620: Supported MIDs [21-40]
+10000000000000001000000010111001
+[obd.obd] Sending command: 0621: Catalyst Monitor Bank 1
+Unknown : 0.0 ratio [PASSED]
+[obd.obd] Sending command: 0151: Fuel Type
+Gasoline
+[obd.obd] Sending command: 025A: DTC Relative accelerator pedal position
+None
+

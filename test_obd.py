@@ -7,13 +7,10 @@ def main():
 	print strftime("%m-%d-%Y %I:%m")
 	print car.port_name()
 
-	commands = {}
+	for i in a:
+		print car.query(i)
 
-	# Convert to dictionary
-	for c in a:
-		data = str(c).split(": ")
-		commands[data[0]] = data[1]
-	print commands['025A']
+
 
 if __name__=="__main__":
 	main()
