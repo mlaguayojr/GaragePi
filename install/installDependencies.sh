@@ -31,4 +31,9 @@ mysql -uroot -proot -e 'create database garagepi; use garagepi; source garagepi.
 echo "\n[} Installing PHPMyAdmin"
 sudo apt-get install phpmyadmin -y
 
+echo "\n[} Installing blueman"
+sudo apt-get install blueman -y
+
+echo "\n[} Installing Python Serial Module"
+sudo python -m pip install pyserial -y
 rm get-pip.py
