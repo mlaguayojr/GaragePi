@@ -54,8 +54,7 @@ def Action(s):
 """
 	Index Page
 
-	Show Welcome
-"""
+	Show Welcome """
 @app.route("/")
 def index(): return render_template("index.html")
 
@@ -527,6 +526,68 @@ def report_view():
 	reports = listdir("saved_reports")
 	return render_template("report/list.html", reports=reports)
 
+"""
+	View all collected data
+
+	limited to what is present in the db
+"""
+@app.route("/data/")
+def data_show():
+	global db
+
+	# Get tables
+	sql = "SHOW TABLES;"
+	tables = Query(sql)
+	valid = []
+	for i in tables:
+		valid.append(i[0])
+
+	valid.remove("devices")
+	return render_template("data/list.html",tables=valid)
+
+@app.route("/data/<tbl>/")
+def data_show_table(tbl):
+	tables = Query("SHOW TABLES;")
+	valid = []
+
+	for i in tables:
+		valid.append(i[0])
+
+	valid.remove("devices")
+
+	if tbl not in valid:
+		return redirect("/home/")
+	else:
+		return redirect("/data/%s/show/" % tbl)
+
+@app.route("/data/<tbl>/show/")
+def show_table_data(tbl):
+	sql = "Select distinct Description from %s;" % tbl
+	data = Query(sql)
+	options = []
+
+	for i in data:
+		options.append(i[0])
+
+	return render_template("/data/options.html",table=tbl, data=options)
+
+@app.route("/data/<tbl>/show/options/<feature>/")
+def show_table_data_values(tbl, feature):
+
+	if "%20" in feature:
+		feature = feature.replace("%20"," ")
+
+	sql = "Select Time, Value from %s where Description = '%s' order by Time;" % (tbl, feature)
+	v = Query(sql)
+	data = []
+	i = 1
+	for j in v:
+		data.append([i, j[1]])
+		i+=1
+		
+	return render_template("/data/graph.html",data=data,feature=feature)
+
 if __name__ == "__main__":
+	global db
 	db = connectDB()
 	app.run(host="0.0.0.0",port=5000)

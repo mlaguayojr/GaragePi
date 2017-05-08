@@ -34,6 +34,6 @@ sudo apt-get install phpmyadmin -y
 echo "\n[} Installing blueman"
 sudo apt-get install blueman -y
 
-echo "\n[} Installing Python Serial Module"
-sudo python -m pip install pyserial -y
+echo "\n[} Installing obd"
+sudo python -m pip install obd
 rm get-pip.py
